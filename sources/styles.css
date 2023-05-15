@@ -41,6 +41,10 @@ img {
   margin-top: 20px;
   height: 100px;
   width: 100px;
+  margin-bottom: 10px;
+}
+.current-temp {
+  margin-bottom: 10px;
 }
 .temp-display {
   display: flex;
