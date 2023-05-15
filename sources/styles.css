@@ -1,6 +1,6 @@
 body {
   font-family: "IBM Plex Mono", monospace;
-  font-family: "Poppins", sans-serif;
+
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
@@ -20,13 +20,15 @@ img {
   width: 50px;
   margin-bottom: 0;
 }
+
 .time-date {
   margin-top: 0;
   margin-bottom: 0;
 }
 .full-wrap {
   padding: 0px;
-  border: 1px solid black;
+  border: 1px solid #357491;
+  box-shadow: 1px 1px 1px #357491;
   border-radius: 40px;
   margin-top: 20px;
   margin-left: 10px;
@@ -56,27 +58,29 @@ img {
   font-size: 48px;
   padding: 0;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 .current-weather-characters {
+  font-size: 14px;
+  background: #357491;
+  color: whitesmoke;
   display: flex;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  justify-content: space-evenly;
+  margin-top: 10px;
+  margin-bottom: 0x;
+  border: 0.25px solid #357491;
+  display: flex;
   align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 15px;
 }
-.future-forecast {
-  flex-direction: column;
-  text-align: center;
+.current-weather-characters-paragraph {
+  margin-bottom: 0;
 }
 .future-date {
   display: flex;
-  flex-direction: row;
+  align-items: center;
   justify-content: space-evenly;
-
-  border-radius: 30px;
-
   margin: 10px 0;
   padding: 5px;
-  align-items: center;
 }
