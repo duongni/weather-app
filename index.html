@@ -16,13 +16,14 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <link rel="stylesheet" href="sources/styles.css" />
     <title>Weather App</title>
   </head>
   <body>
     <div class="container">
       <div class="full-wrap">
-        <h1>New York</h1>
+        <h1 id="city"></h1>
         <p class="time-date">01:00 AM, Sat May 13th</p>
         <div class="current-weather">
           <div>
@@ -33,9 +34,9 @@
               class="weather-icon"
             />
             <div class="temp-display">
-              <p class="current-temp"><strong>27</strong></p>
+              <p class="current-temp" id="current-temp"><strong></strong></p>
               <p class="temp-type">°F |°C</p>
-              <p><strong class="description">snow</strong></p>
+              <p><strong class="description" id="description"></strong></p>
             </div>
           </div>
           <div>
@@ -92,6 +93,15 @@
             </ul>
           </div>
         </div>
+        <p class="footer">
+          <a
+            href="https://github.com/duongni/my-weather-project"
+            target="_blank"
+          >
+            Open-source code
+          </a>
+          by Ni D.
+        </p>
       </div>
     </div>
   </body>
