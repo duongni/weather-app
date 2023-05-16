@@ -1,3 +1,39 @@
+function formatDate() {
+  let now = new Date();
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let month = months[now.getMonth()];
+
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = days[now.getDay()];
+  let hour = now.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+
+  let mins = now.getMinutes();
+  if (mins < 10) {
+    mins = `0${mins}`;
+  }
+
+  let nowDate = now.getDate();
+  let date = `${day}, ${month} ${nowDate} at ${hour}:${mins}`;
+  return date;
+}
+document.querySelector("#date-time").innerHTML = formatDate();
+
 function showTemp(response) {
   console.log(response);
   let currentTemp = document.querySelector("#current-temp");
@@ -15,6 +51,7 @@ function showTemp(response) {
 }
 
 let apiKey = "a0a06a4d0t0a9fff1oce244a979b7153";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=mississippi&key=${apiKey}&units=imperial`;
+let city = "Mississippi";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
 
 axios.get(apiUrl).then(showTemp);

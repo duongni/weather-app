@@ -1,9 +1,10 @@
 body {
   font-family: "IBM Plex Mono", monospace;
-
   font-size: 14px;
   font-weight: 100;
   line-height: 19px;
+  background: #fffffe;
+  color: #232946;
 }
 h1 {
   margin-top: 10px;
@@ -27,8 +28,8 @@ img {
 }
 .full-wrap {
   padding: 0px;
-  border: 1px solid #357491;
-  box-shadow: 1px 1px 1px #357491;
+  border: 1px solid #232946;
+
   border-radius: 40px;
   margin-top: 20px;
   margin-left: 10px;
@@ -63,16 +64,15 @@ img {
   padding: 0;
   margin-top: 0;
   margin-bottom: 25px;
-  color: #357491;
+  color: #232946;
 }
 .current-weather-characters {
   font-size: 14px;
-  background: #357491;
-  color: whitesmoke;
+  background: #b8c1ec;
+  color: #232946;
   display: flex;
   margin-top: 10px;
   margin-bottom: 0x;
-  border: 0.25px solid #357491;
   display: flex;
   align-items: center;
   flex-direction: row;
