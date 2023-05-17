@@ -129,7 +129,7 @@ button {
 }
 
 .dark {
-  background: #232946;
+  background: rgba(35, 41, 70, 0.9);
   color: #fffffe;
 }
 .dark .full-wrap {
