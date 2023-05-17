@@ -42,16 +42,18 @@ function showTemp(response) {
   let feelLikeTemp = document.querySelector("#current-feel-like-temp");
   let currentHumidity = document.querySelector("#current-humidity");
   let currentWindSpeed = document.querySelector("#current-wind-speed");
+  let iconElement = document.querySelector("#icon");
   currentCity.innerHTML = response.data.city;
   currentTemp.innerHTML = Math.round(response.data.temperature.current);
   currentWeatherDescription.innerHTML = response.data.condition.description;
   feelLikeTemp.innerHTML = Math.round(response.data.temperature.feels_like);
   currentHumidity.innerHTML = response.data.temperature.humidity;
   currentWindSpeed.innerHTML = Math.round(response.data.wind.speed);
+  //iconElement.setAttribute("src", `${imagesPath} ${response.data.icon}`);
 }
 
 let apiKey = "a0a06a4d0t0a9fff1oce244a979b7153";
 let city = "Mississippi";
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
-
+let imagesPath = "sources/images/";
 axios.get(apiUrl).then(showTemp);
