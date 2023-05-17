@@ -17,12 +17,38 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/118803ab34.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="sources/styles.css" />
     <title>Weather App</title>
   </head>
   <body>
     <div class="container">
       <div class="full-wrap">
+        <form class="searchBar" id="citySearchBar" class="mt-3">
+          <input
+            type="text"
+            name="city"
+            placeholder="Enter city name"
+            class="search"
+            id="city-input"
+          />
+
+          <button id="buttonSearch" type="submit">
+            <i
+              class="fa-solid fa-magnifying-glass searchGlassIcon"
+              style="color: #eebbc3"
+            ></i>
+          </button>
+          <button id="current-location-search">
+            <i
+              class="fa-solid fa-location-dot locationIcon"
+              style="color: #eebbc3"
+            ></i>
+          </button>
+        </form>
         <h1 id="city"></h1>
         <p class="time-date" id="date-time"></p>
         <div class="current-weather">
