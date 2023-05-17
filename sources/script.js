@@ -49,7 +49,10 @@ function showTemp(response) {
   feelLikeTemp.innerHTML = Math.round(response.data.temperature.feels_like);
   currentHumidity.innerHTML = response.data.temperature.humidity;
   currentWindSpeed.innerHTML = Math.round(response.data.wind.speed);
-  //iconElement.setAttribute("src", `${imagesPath} ${response.data.icon}`);
+  iconElement.setAttribute(
+    "src",
+    `sources/images/${response.data.condition.icon}.png`
+  );
 }
 
 let apiKey = "a0a06a4d0t0a9fff1oce244a979b7153";
