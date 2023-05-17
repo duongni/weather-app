@@ -25,9 +25,6 @@ a:link {
   text-decoration: none;
 }
 
-button {
-  cursor: pointer;
-}
 button,
 input {
   border: none;
@@ -52,6 +49,7 @@ button {
   border-radius: 15px;
   height: 30px;
   width: 30px;
+  cursor: pointer;
 }
 .time-date {
   margin-top: 0;
@@ -128,4 +126,25 @@ button {
 
 .searchBar {
   margin-top: 10px;
+}
+
+.dark {
+  background: #232946;
+  color: #fffffe;
+}
+.dark .full-wrap {
+  background: #232946;
+  padding: 0px;
+  border: 1px solid #b8c1ec;
+}
+
+.dark .current-weather-characters {
+  background: #b8c1ec;
+  color: #fffffe;
+}
+.dark .description {
+  color: #fffffe;
+}
+.dark .future-date {
+  color: #fffffe;
 }
