@@ -50,6 +50,7 @@ button {
   height: 30px;
   width: 30px;
   cursor: pointer;
+  color: #eebbc3;
 }
 .time-date {
   margin-top: 0;
@@ -101,7 +102,7 @@ button {
   background: #eebbc3;
   color: #232946;
   display: flex;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 0x;
   display: flex;
   align-items: center;
@@ -128,6 +129,11 @@ button {
   margin-top: 10px;
 }
 
+.current-weather .active {
+  color: #232946;
+  cursor: default;
+}
+
 .dark {
   background: #161819;
   color: #fafafa;
@@ -147,4 +153,11 @@ button {
 }
 .dark .future-date {
   color: #fafafa;
+}
+.dark button {
+  color: #7560ee;
+}
+.dark .current-weather .active {
+  color: #fafafa;
+  cursor: default;
 }

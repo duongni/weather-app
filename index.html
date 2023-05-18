@@ -37,16 +37,10 @@
           />
 
           <button id="buttonSearch" type="submit">
-            <i
-              class="fa-solid fa-magnifying-glass searchGlassIcon"
-              style="color: #eebbc3"
-            ></i>
+            <i class="fa-solid fa-magnifying-glass searchGlassIcon"></i>
           </button>
           <button id="current-location-search">
-            <i
-              class="fa-solid fa-location-dot locationIcon"
-              style="color: #eebbc3"
-            ></i>
+            <i class="fa-solid fa-location-dot locationIcon"></i>
           </button>
         </form>
         <h1 id="city"></h1>
@@ -56,7 +50,10 @@
             <img src="" , class="weather-icon" id="icon" />
             <div class="temp-display">
               <p class="current-temp" id="current-temp"><strong></strong></p>
-              <p class="temp-type">°F |°C</p>
+              <p class="temp-type">
+                <a href="#" id="fahrenheit-link" class="active">°F</a> |
+                <a href="#" id="celcius-link">°C</a>
+              </p>
               <p><strong class="description" id="description"></strong></p>
             </div>
           </div>

@@ -43,8 +43,10 @@ function showTemp(response) {
   let currentHumidity = document.querySelector("#current-humidity");
   let currentWindSpeed = document.querySelector("#current-wind-speed");
   let iconElement = document.querySelector("#icon");
+
+  fahrenheitTemp = response.data.temperature.current;
   currentCity.innerHTML = response.data.city;
-  currentTemp.innerHTML = Math.round(response.data.temperature.current);
+  currentTemp.innerHTML = Math.round(fahrenheitTemp);
   currentWeatherDescription.innerHTML = response.data.condition.description;
   feelLikeTemp.innerHTML = Math.round(response.data.temperature.feels_like);
   currentHumidity.innerHTML = response.data.temperature.humidity;
@@ -67,16 +69,14 @@ function handleInput(event) {
   searchCity(cityInput.value);
 }
 
-searchCity("New York");
-
 let citySearch = document.querySelector("#citySearchBar");
 citySearch.addEventListener("submit", handleInput);
 
 function searchLocation(position) {
-  let apiKey = "8161b4309ee03faae957729ba7104797";
+  let apiKey = "a0a06a4d0t0a9fff1oce244a979b7153";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apikKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}`;
 
   https: axios.get(apiUrl).then(showTemp);
 }
@@ -100,3 +100,28 @@ if (hour > 18) {
 if (hour < 6) {
   changeTheme();
 }
+
+function convertCelciusTemp(event) {
+  event.preventDefault();
+  let currentCelciusTemp = document.querySelector("#current-temp");
+  //remove active class from Fahreiheit link
+  fahrenheitLink.classList.remove("active");
+  celciusLink.classList.add("active");
+  let celciusTempElement = ((fahrenheitTemp - 32) * 5) / 9;
+  currentCelciusTemp.innerHTML = Math.round(celciusTempElement);
+}
+function convertFahrenheitTemp(event) {
+  event.preventDefault();
+  fahrenheitLink.classList.add("active");
+  celciusLink.classList.remove("active");
+  let fahrenheitTempElement = document.querySelector("#current-temp");
+  fahrenheitTempElement.innerHTML = Math.round(fahrenheitTemp);
+}
+
+let fahrenheitTemp = null;
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", convertCelciusTemp);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertFahrenheitTemp);
+searchCity("New York");
