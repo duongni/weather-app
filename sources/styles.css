@@ -129,22 +129,22 @@ button {
 }
 
 .dark {
-  background: rgba(35, 41, 70, 0.9);
-  color: #fffffe;
+  background: #161819;
+  color: #fafafa;
 }
 .dark .full-wrap {
-  background: #232946;
+  background: #161819;
   padding: 0px;
   border: 1px solid #b8c1ec;
 }
 
 .dark .current-weather-characters {
-  background: #b8c1ec;
-  color: #fffffe;
+  background: #7560ee;
+  color: #fafafa;
 }
 .dark .description {
-  color: #fffffe;
+  color: #fafafa;
 }
 .dark .future-date {
-  color: #fffffe;
+  color: #fafafa;
 }
