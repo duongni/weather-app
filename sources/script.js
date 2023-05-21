@@ -118,6 +118,27 @@ function convertFahrenheitTemp(event) {
   fahrenheitTempElement.innerHTML = Math.round(fahrenheitTemp);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = "";
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+  <ul class="future-date">
+              <li>${day}</li>
+              <li>
+                <img src="sources/images/shower-rain-day.png" />
+              </li>
+              <li>65°</li>
+            </ul>
+`;
+  });
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let fahrenheitTemp = null;
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", convertCelciusTemp);
@@ -125,3 +146,4 @@ celciusLink.addEventListener("click", convertCelciusTemp);
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertFahrenheitTemp);
 searchCity("New York");
+displayForecast();
