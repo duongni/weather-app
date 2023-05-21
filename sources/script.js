@@ -35,7 +35,6 @@ function formatDate() {
 document.querySelector("#date-time").innerHTML = formatDate();
 
 function showTemp(response) {
-  console.log(response);
   let currentTemp = document.querySelector("#current-temp");
   let currentCity = document.querySelector("#city");
   let currentWeatherDescription = document.querySelector("#description");
@@ -55,6 +54,8 @@ function showTemp(response) {
     "src",
     `sources/images/${response.data.condition.icon}.png`
   );
+
+  getForecast(response.data.coordinates);
 }
 
 function searchCity(city) {
@@ -76,7 +77,7 @@ function searchLocation(position) {
   let apiKey = "a0a06a4d0t0a9fff1oce244a979b7153";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=imperial`;
 
   https: axios.get(apiUrl).then(showTemp);
 }
@@ -104,6 +105,7 @@ if (hour < 6) {
 function convertCelciusTemp(event) {
   event.preventDefault();
   let currentCelciusTemp = document.querySelector("#current-temp");
+
   //remove active class from Fahreiheit link
   fahrenheitLink.classList.remove("active");
   celciusLink.classList.add("active");
@@ -115,30 +117,52 @@ function convertFahrenheitTemp(event) {
   fahrenheitLink.classList.add("active");
   celciusLink.classList.remove("active");
   let fahrenheitTempElement = document.querySelector("#current-temp");
+
   fahrenheitTempElement.innerHTML = Math.round(fahrenheitTemp);
 }
 
-function displayForecast() {
+function convertDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = "";
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
   <ul class="future-date">
-              <li>${day}</li>
+              <li>${convertDate(forecastDay.temperature.day)}</li>
               <li>
-                <img src="sources/images/shower-rain-day.png" />
+                <img src="sources/images/${forecastDay.condition.icon}.png" />
               </li>
-              <li>65°</li>
+              <li><span id="forecast-max">${Math.round(
+                forecastDay.temperature.maximum
+              )}</span>°/ <span id="forecast-min">${Math.round(
+          forecastDay.temperature.minimum
+        )}</span>° </li>
             </ul>
 `;
+    }
   });
 
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  let apiKey = "a0a06a4d0t0a9fff1oce244a979b7153";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=imperial`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
 let fahrenheitTemp = null;
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", convertCelciusTemp);
@@ -146,4 +170,3 @@ celciusLink.addEventListener("click", convertCelciusTemp);
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertFahrenheitTemp);
 searchCity("New York");
-displayForecast();
