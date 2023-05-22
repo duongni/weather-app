@@ -135,12 +135,12 @@ function displayForecast(response) {
   let forecastHTML = "";
 
   forecast.forEach(function (forecastDay, index) {
-    if (index < 5) {
+    if (index > 0 && index < 6) {
       forecastHTML =
         forecastHTML +
         `
   <ul class="future-date">
-              <li>${convertDate(forecastDay.temperature.day)}</li>
+              <li>${convertDate(forecastDay.time)}</li>
               <li>
                 <img src="sources/images/${forecastDay.condition.icon}.png" />
               </li>
