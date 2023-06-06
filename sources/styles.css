@@ -163,3 +163,6 @@ button {
   color: #fafafa;
   cursor: default;
 }
+.container {
+  margin-top: 40px;
+}
