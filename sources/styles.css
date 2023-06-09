@@ -141,13 +141,13 @@ button {
   color: #fafafa;
 }
 .dark .full-wrap {
-  background: #161819;
+  background: #1a1a1b;
   padding: 0px;
-  border: 1px solid #7560ee;
+  border: 1px solid #eebbc3;
 }
 
 .dark .current-weather-characters {
-  background: #7560ee;
+  background: #eebbc3;
   color: #fafafa;
 }
 .dark .description {
